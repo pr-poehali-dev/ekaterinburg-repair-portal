@@ -20,6 +20,7 @@ const Index = () => {
           <div className="text-2xl font-bold text-primary">РемонтЭлит</div>
           <div className="hidden md:flex gap-6">
             <a href="#services" className="text-foreground hover:text-accent transition-colors">Услуги</a>
+            <a href="#portfolio" className="text-foreground hover:text-accent transition-colors">Портфолио</a>
             <a href="#about" className="text-foreground hover:text-accent transition-colors">О компании</a>
             <a href="#reviews" className="text-foreground hover:text-accent transition-colors">Отзывы</a>
             <a href="#faq" className="text-foreground hover:text-accent transition-colors">FAQ</a>
@@ -113,7 +114,40 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-20 px-4 bg-secondary">
+      <section id="portfolio" className="py-20 px-4 bg-secondary">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-primary">Наши работы</h2>
+          <p className="text-center text-muted-foreground mb-12 text-lg">Примеры выполненных проектов</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+            {[
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/e127e55b-60f1-4d8b-8f67-53f0817eae8e.jpg", title: "Гостиная", desc: "Современный стиль, 35 м²" },
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/4646b870-12c6-4230-b450-a8c53e704240.jpg", title: "Спальня", desc: "Скандинавский минимализм, 20 м²" },
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/a878e6f5-772c-4b01-80a2-58c5a1200dd9.jpg", title: "Кухня", desc: "Классика с золотом, 15 м²" },
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/9e92d55b-876e-498e-899d-df2297dfbae1.jpg", title: "Ванная", desc: "Премиум отделка, 8 м²" },
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/d012e415-9cac-4c37-86ae-ce8318d9019d.jpg", title: "Кабинет", desc: "Рабочее пространство, 12 м²" },
+              { img: "https://cdn.poehali.dev/projects/360b1998-f78f-46ee-91cb-8af051025f36/files/101be55c-f0e9-40d8-90fe-c32bcdd7333a.jpg", title: "Столовая", desc: "Элегантный дизайн, 18 м²" }
+            ].map((project, idx) => (
+              <Card key={idx} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-scale-in border-border group" style={{ animationDelay: `${idx * 0.1}s` }}>
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.img} 
+                    alt={project.title}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-primary">{project.title}</h3>
+                  <p className="text-muted-foreground">{project.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" className="py-20 px-4">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-primary">Отзывы клиентов</h2>
           
